@@ -6,7 +6,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 * [X] Futtatás Mavennel
 * [X] Tesztesetek életciklusa
 * [X] Elnevezések
-* [ ] Assert
+* [X] Assert
 * [ ] Kivételkezelés és timeout tesztelése
 * [ ] Egymásba ágyazás
 * [ ] Tagek és metaannotációk használata

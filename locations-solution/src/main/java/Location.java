@@ -42,4 +42,20 @@ public class Location {
                 ", lon=" + lon +
                 '}';
     }
+
+    public double distanceFrom(Location location, Location anotherLocation){
+        final int R = 6371; // Radius of the earth
+
+        double latDistance = Math.toRadians(anotherLocation.getLat() - location.getLat());
+        double lonDistance = Math.toRadians(anotherLocation.getLon() - location.getLon());
+        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+                + Math.cos(Math.toRadians(location.getLat())) * Math.cos(Math.toRadians(anotherLocation.getLat()))
+                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double distance = R * c * 1; // convert to meters
+
+        distance = Math.pow(distance, 2);
+
+        return Math.sqrt(distance);
+    }
 }
