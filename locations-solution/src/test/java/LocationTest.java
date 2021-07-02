@@ -20,7 +20,6 @@ class LocationTest {
         assertEquals("Budapest", location.getName());
         assertEquals(0, location.getLat());
         assertEquals(0, location.getLon());
-
     }
 
     @Test
