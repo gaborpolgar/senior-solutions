@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LocationTest {
@@ -60,14 +60,14 @@ class LocationTest {
     }
 
     @Test
-    void LocationOperatorsTest(){
+    void LocationOperatorsTest() {
 
-        List<Location> locations = List.of(new Location("Koppenhága",1,1), new Location("Budapest",-1,-2), new Location("Stokholm",4,5));
+        List<Location> locations = List.of(new Location("Koppenhága", 1, 1), new Location("Budapest", -1, -2), new Location("Stokholm", 4, 5));
         assertEquals(List.of("Koppenhága", "Stokholm"), new LocationOperators().filterOnNorth(locations).stream().map(Location::getName).collect(Collectors.toList()));
     }
 
     @Test
-    void LocationLonLatExceptionTest(){
+    void LocationLonLatExceptionTest() {
         assertThrows(IllegalArgumentException.class, () -> new Location("Budapest", 91, 181));
         assertThrows(IllegalArgumentException.class, () -> new Location("Budapest", -91, -181));
     }
