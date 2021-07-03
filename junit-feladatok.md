@@ -7,7 +7,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 * [X] Tesztesetek életciklusa
 * [X] Elnevezések
 * [X] Assert
-* [ ] Kivételkezelés és timeout tesztelése
+* [X] Kivételkezelés és timeout tesztelése
 * [ ] Egymásba ágyazás
 * [ ] Tagek és metaannotációk használata
 * [ ] Tesztesetek ismétlése

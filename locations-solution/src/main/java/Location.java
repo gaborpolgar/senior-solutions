@@ -4,9 +4,19 @@ public class Location {
     private double lat;
     private double lon;
 
+    public Location(double lat) {
+        this.lat = lat;
+    }
+
     public Location(String name, double lat, double lon) {
         this.name = name;
+        if (lat > 90 || lat < -90){
+            throw new IllegalArgumentException("latitude: " + lat);
+        }
         this.lat = lat;
+        if (lon > 180 || lon < -180){
+            throw new IllegalArgumentException("longitude: " + lon);
+        }
         this.lon = lon;
     }
 
