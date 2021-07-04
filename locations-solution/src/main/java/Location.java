@@ -46,11 +46,9 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", lat=" + lat +
-                ", lon=" + lon +
-                '}';
+        return name +
+                "," + lat +
+                "," + lon;
     }
 
     public double distanceFrom(Location location, Location anotherLocation){
