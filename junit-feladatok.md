@@ -10,7 +10,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 * [X] Kivételkezelés és timeout tesztelése
 * [X] Egymásba ágyazás
 * [X] Tagek és metaannotációk használata
-* [ ] Tesztesetek ismétlése
+* [X] Tesztesetek ismétlése
 * [ ] Paraméterezett tesztek
 * [ ] Dinamikus tesztek
 * [ ] Tempdirectory extension

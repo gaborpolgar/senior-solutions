@@ -68,4 +68,9 @@ public class Location {
 
         return Math.sqrt(distance);
     }
+
+    public boolean isOnEquator() {
+        return this.getLat() == 0;
+    }
+
 }
