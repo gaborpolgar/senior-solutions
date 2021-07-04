@@ -1,11 +1,15 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class LocationTest {
 
@@ -34,9 +38,23 @@ class LocationTest {
         assertTrue(locationParser.isOnEquator(nullLocation));
     }
 
-    @Test
-    void testOnPrimeMeridian() {
-        assertTrue(locationParser.isOnPrimeMeridian(nullLocation));
+    @ParameterizedTest(name = "isMeridian {0} - location {1}")
+    @MethodSource("createLocations")
+    void testOnPrimeMeridian(boolean boo, Location location) {
+        assertEquals(boo, location.isOnPrimeMeridian());
+    }
+
+    @ParameterizedTest(name = "distance {0}")
+    @CsvFileSource(resources = "/locations.csv", numLinesToSkip = 2)
+    void testDistanceWithCsv(Double distance) {
+        assertEquals(distance, Math.round(location.distanceFrom(location, anotherLocation)));
+    }
+
+    static Stream<Arguments> createLocations(){
+        return Stream.of(
+                arguments(true, new Location("Budapest", 0, 0)),
+                arguments(false, new Location("London", 1, 1))
+        );
     }
 
     @Test

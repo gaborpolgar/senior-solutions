@@ -73,4 +73,8 @@ public class Location {
         return this.getLat() == 0;
     }
 
+    public boolean isOnPrimeMeridian() {
+        return this.getLon() == 0;
+    }
+
 }
