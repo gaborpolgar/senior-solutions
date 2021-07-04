@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -75,6 +77,16 @@ class LocationTest {
                 () -> assertEquals(0, nullLocation.getLat()),
                 () -> assertEquals(0, nullLocation.getLon())
         );
+    }
+
+    @TestFactory
+    Stream<DynamicTest> testisEquitor(){
+        Location budapest = new Location("Budapest",0,0);
+        Location london = new Location("London",0,0);
+        return Stream.of(budapest, london)
+                .map(item ->
+                        DynamicTest.dynamicTest("The " + location.getName() + " is on Equitor",
+                                ()-> assertEquals(true, item.isOnEquator())));
     }
 
     @Test
