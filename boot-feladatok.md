@@ -5,7 +5,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 * [X] Bevezetés a Spring Framework és Spring Boot használatába
 * [X] Bevezetés a Spring Boot használatába 
 * [X] Spring Beanek
-* [ ] Konfiguráció Javaban
+* [X] Konfiguráció Javaban
 * [ ] Build és futtatás Mavennel
 * [ ] Build és futtatás Gradle használatával
 * [ ] Unit és integrációs tesztek
