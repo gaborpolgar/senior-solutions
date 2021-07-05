@@ -1,12 +1,10 @@
 package locations;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/locations")
@@ -19,8 +17,8 @@ public class LocationsController {
     }
 
     @GetMapping
-    public List<LocationDto> getLocations() {
-        return locationService.getLocations();
+    public List<LocationDto> getLocations(@RequestParam Optional<String> prefix) {
+        return locationService.getLocations(prefix);
     }
 //        List<LocationDto> locations = locationService.getLocations();
 //        StringBuilder sb = new StringBuilder();

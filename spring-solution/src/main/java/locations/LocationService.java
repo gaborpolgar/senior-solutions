@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 //@NoArgsConstructor
@@ -24,9 +27,12 @@ public class LocationService {
 
     private List<Location> locations = Collections.synchronizedList(List.of(bp, london));
 
-    public List<LocationDto> getLocations() {
+    public List<LocationDto> getLocations(Optional<String> prefix) {
         Type targetListType = new TypeToken<List<LocationDto>>(){}.getType();
-        return modelMapper.map(locations, targetListType);
+        List<Location> filtered = locations.stream().
+                filter(e-> prefix.isEmpty() || e.getName().toLowerCase().startsWith(prefix.get().toLowerCase()))
+                .collect(Collectors.toList());
+        return modelMapper.map(filtered, targetListType);
     }
 }
 
