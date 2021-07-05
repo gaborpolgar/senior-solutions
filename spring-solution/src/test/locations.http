@@ -3,6 +3,10 @@ GET http://localhost:8080/locations/
 Accept: application/json
 
 ###
+GET http://localhost:8080/locations/3
+Accept: application/json
+
+###
 POST http://localhost:8080/locations
 Content-Type: application/json
 Accept: application/json
@@ -14,7 +18,7 @@ Accept: application/json
 }
 
 ###
-PUT http://localhost:8080/locations/1
+PUT http://localhost:8080/locations/3
 Content-Type: application/json
 Accept: application/json
 
@@ -23,4 +27,4 @@ Accept: application/json
 }
 
 ###
-DELETE http://localhost:8080/locations/1
+DELETE http://localhost:8080/locations/3

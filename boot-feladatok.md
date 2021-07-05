@@ -18,7 +18,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 * [X] REST webszolgáltatások - GET művelet
 * [X] GET műveletek paraméterezése
 * [X] REST webszolgáltatások POST és DELETE művelet
-* [ ] Státuszkódok és hibakezelés
+* [X] Státuszkódok és hibakezelés
 * [ ] Integrációs tesztelés
 * [ ] Swagger UI
 * [ ] Tesztelés Rest Assured használatával
