@@ -12,3 +12,15 @@ Accept: application/json
   "lat": 10,
   "lon": 10
 }
+
+###
+PUT http://localhost:8080/locations/1
+Content-Type: application/json
+Accept: application/json
+
+{
+"name": "Debrecen"
+}
+
+###
+DELETE http://localhost:8080/locations/1

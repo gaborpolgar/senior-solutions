@@ -47,5 +47,20 @@ public class LocationService {
         locations.add(location);
         return modelMapper.map(location, LocationDto.class);
     }
+
+    public LocationDto updateLocation(long id, UpdateLocationCommand command) {
+        Location location = locations.stream()
+                .filter(e->e.getId() == id)
+                .findFirst().orElseThrow(() ->  new IllegalArgumentException("Location not found: " + id));
+                location.setName(command.getName());
+                return modelMapper.map(location, LocationDto.class);
+    }
+
+    public void deleteLocation(long id) {
+        Location location = locations.stream()
+                .filter(e->e.getId() == id)
+                .findFirst().orElseThrow(() ->  new IllegalArgumentException("Location not found: " + id));
+        locations.remove(location);
+    }
 }
 
