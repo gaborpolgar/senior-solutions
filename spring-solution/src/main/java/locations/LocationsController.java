@@ -24,6 +24,7 @@ public class LocationsController {
         for (Location location : locations) {
             sb.append(location.getName()).append(", ");
         }
+        sb.append(" service");
         return sb.toString();
     }
 
