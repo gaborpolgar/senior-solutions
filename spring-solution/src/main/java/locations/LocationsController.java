@@ -3,17 +3,23 @@ package locations;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class LocationsController {
 
-    private List<Location> locations;
+
+    private LocationService locationService;
+
+    public LocationsController(LocationService locationService) {
+        this.locationService = locationService;
+    }
 
     @GetMapping("/locations")
-    @ResponseBody
-    public String getLocations(){
+    public String getLocations() {
+        List<Location> locations = locationService.getLocations();
         StringBuilder sb = new StringBuilder();
         for (Location location : locations) {
             sb.append(location.getName()).append(", ");

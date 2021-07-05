@@ -4,7 +4,7 @@ Kérlek jelöld be, hogy melyik gyakorlati feladatokat oldottad meg!
 
 * [X] Bevezetés a Spring Framework és Spring Boot használatába
 * [X] Bevezetés a Spring Boot használatába 
-* [ ] Spring Beanek
+* [X] Spring Beanek
 * [ ] Konfiguráció Javaban
 * [ ] Build és futtatás Mavennel
 * [ ] Build és futtatás Gradle használatával
