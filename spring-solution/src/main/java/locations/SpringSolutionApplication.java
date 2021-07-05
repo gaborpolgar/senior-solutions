@@ -12,9 +12,9 @@ public class SpringSolutionApplication {
 		SpringApplication.run(SpringSolutionApplication.class, args);
 	}
 
-	@Bean
-	public LocationService locationService(){
-		return new LocationService();
-	}
+//	@Bean
+//	public LocationService locationSerice(){
+//		return new LocationService();
+//	}
 
 }

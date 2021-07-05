@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LocationService {
 
     private Location bp = new Location(10L, "Budapest", 5, 5);
