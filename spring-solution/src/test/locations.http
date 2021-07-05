@@ -17,6 +17,17 @@ Accept: application/json
   "lon": 10
 }
 
+### Validation
+POST http://localhost:8080/locations
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "",
+  "lat": 10,
+  "lon": 10
+}
+
 ###
 PUT http://localhost:8080/locations/3
 Content-Type: application/json
