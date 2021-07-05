@@ -6,10 +6,8 @@ import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,25 +19,33 @@ public class LocationService {
     }
 
     private ModelMapper modelMapper;
+    private AtomicLong idGenerator = new AtomicLong();
 
-    private Location bp = new Location(1L, "Budapest", 5, 5);
-    private Location london = new Location(2L, "London", 50, 50);
-
-    private List<Location> locations = Collections.synchronizedList(List.of(bp, london));
+    private List<Location> locations = Collections.synchronizedList(new ArrayList<>(List.of(
+            new Location(idGenerator.incrementAndGet(), "Budapest",5,5),
+            new Location(idGenerator.incrementAndGet(), "London",3,2)
+    )));
 
     public List<LocationDto> getLocations(Optional<String> prefix) {
-        Type targetListType = new TypeToken<List<LocationDto>>(){}.getType();
+        Type targetListType = new TypeToken<List<LocationDto>>() {
+        }.getType();
         List<Location> filtered = locations.stream().
-                filter(e-> prefix.isEmpty() || e.getName().toLowerCase().startsWith(prefix.get().toLowerCase()))
+                filter(e -> prefix.isEmpty() || e.getName().toLowerCase().startsWith(prefix.get().toLowerCase()))
                 .collect(Collectors.toList());
         return modelMapper.map(filtered, targetListType);
     }
 
     public LocationDto findLocationById(long id) {
         return modelMapper.map(locations.stream()
-                .filter(e-> e.getId() == id).findAny()
-                .orElseThrow(() -> new IllegalArgumentException("Location not found" + id)),
-        LocationDto.class);
+                        .filter(e -> e.getId() == id).findAny()
+                        .orElseThrow(() -> new IllegalArgumentException("Location not found" + id)),
+                LocationDto.class);
+    }
+
+    public LocationDto createLocation(CreateLocationCommand command) {
+        Location location = new Location(idGenerator.incrementAndGet(), command.getName(), command.getLat(), command.getLon());
+        locations.add(location);
+        return modelMapper.map(location, LocationDto.class);
     }
 }
 
