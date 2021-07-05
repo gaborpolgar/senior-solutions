@@ -29,4 +29,9 @@ public class LocationsController {
 //        return sb.toString();
 //    }
 
+    @GetMapping("/{id}")
+    public LocationDto findLocationById(@PathVariable("id") long id){
+        return locationService.findLocationById(id);
+    }
+
 }

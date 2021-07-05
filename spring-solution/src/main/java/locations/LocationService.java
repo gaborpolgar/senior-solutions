@@ -34,5 +34,12 @@ public class LocationService {
                 .collect(Collectors.toList());
         return modelMapper.map(filtered, targetListType);
     }
+
+    public LocationDto findLocationById(long id) {
+        return modelMapper.map(locations.stream()
+                .filter(e-> e.getId() == id).findAny()
+                .orElseThrow(() -> new IllegalArgumentException("Location not found" + id)),
+        LocationDto.class);
+    }
 }
 
