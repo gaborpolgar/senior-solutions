@@ -1,0 +1,15 @@
+### Get types
+
+GET http://localhost:8080/api/types
+
+### Create appointment
+
+GET http://localhost:8080/api/appointments
+Content-Type: application/json
+
+{
+  "taxNumber": "123456780"
+  "start": "2021-06-16T11:00:00",
+  "end": "2021-06-16T11:00:00",
+  "typeCode": "002"
+}
